@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoLink Dynamics • The Global Synchronization Layer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap');
+
+        :root {
+            --primary: #10b981;
+            --bg: #030505;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg);
+            color: #f8fafc;
+            line-height: 1.6;
+        }
+
+        .heading-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.01);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(16, 185, 129, 0.1);
+        }
+
+        .emerald-glow {
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
+            filter: blur(60px);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to bottom right, #fff, #64748b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Scroll Progress -->
+    <div id="progress" class="fixed top-0 left-0 h-0.5 bg-emerald-500 z-[200] transition-all"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-[100] px-6 py-6 transition-all duration-500" id="navbar">
+        <div class="max-w-7xl mx-auto flex items-center justify-between glass px-8 py-4 rounded-3xl">
+            <div class="flex items-center gap-3">
+                <div
+                    class="w-10 h-10 bg-emerald-500 rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(16,185,129,0.3)]">
+                    <i class="fa-solid fa-sync text-black animate-spin-slow"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="heading-font font-bold text-xl tracking-tight leading-none">EcoLink</span>
+                    <span class="text-[10px] text-emerald-500 font-bold uppercase tracking-widest mt-1">Dynamics</span>
+                </div>
+            </div>
+            <div class="hidden lg:flex gap-10 text-xs font-bold uppercase tracking-[2px] text-slate-400">
+                <a href="#vision" class="hover:text-emerald-400 transition-colors">01 Vision</a>
+                <a href="#tech" class="hover:text-emerald-400 transition-colors">02 Tech Stack</a>
+                <a href="#impact" class="hover:text-emerald-400 transition-colors">03 Impact</a>
+                <a href="#roadmap" class="hover:text-emerald-400 transition-colors">04 Roadmap</a>
+            </div>
+            <button onclick="openModal()"
+                class="bg-emerald-500 text-black px-8 py-3 rounded-xl font-bold text-sm hover:scale-105 active:scale-95 transition-all">Pilot
+                Access</button>
+        </div>
+    </nav>
+
+    <!-- Section 1: Hero -->
+    <header class="min-h-screen flex items-center pt-20 px-6 relative overflow-hidden">
+        <div class="emerald-glow absolute w-full h-full -top-1/2 -left-1/2"></div>
+        <div class="max-w-7xl mx-auto w-full z-10">
+            <div class="max-w-4xl reveal">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-black uppercase tracking-[3px] mb-8">
+                    Confidential // Strategic Concept V2.0
+                </div>
+                <h1
+                    class="heading-font text-7xl md:text-[110px] font-bold leading-[0.85] tracking-tighter mb-10 text-gradient">
+                    The Pulse of <br> Global Resources.
+                </h1>
+                <p class="text-xl md:text-2xl text-slate-400 max-w-2xl mb-12 leading-relaxed">
+                    EcoLink Dynamics is a pioneering operational intelligence platform leveraging Spatial AI to solve
+                    the linear consumption crisis. We replace speculative risk with real-world resource synchronization.
+                </p>
+                <div class="flex flex-wrap gap-6">
+                    <button
+                        class="px-10 py-5 bg-white text-black font-black text-lg rounded-2xl shadow-2xl hover:bg-emerald-400 transition-colors">Initiate
+                        Deployment</button>
+                    <div class="flex flex-col justify-center border-l border-white/10 pl-6">
+                        <span class="text-emerald-500 font-bold text-2xl">184.3k</span>
+                        <span class="text-xs text-slate-500 uppercase font-bold tracking-widest">Metric Tons CO₂
+                            Saved</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section 2: The Vision & Crisis Breakdown -->
+    <section id="vision" class="py-40 px-6 border-t border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-32">
+                <div class="reveal">
+                    <h2 class="heading-font text-5xl font-bold mb-12">Beyond The Inefficiency Crisis</h2>
+                    <p class="text-slate-400 text-lg mb-8">Global supply chains currently face three critical failures
+                        that lead to millions of tons of excess emissions[cite: 3]:</p>
+                    <div class="space-y-8">
+                        <div class="flex gap-6">
+                            <div class="text-emerald-500 text-2xl mt-1"><i class="fa-solid fa-database"></i></div>
+                            <div>
+                                <h4 class="font-bold text-xl mb-2">Data Silos & Fragmentation</h4>
+                                <p class="text-slate-500">Operational data is trapped in fragmented ERP systems,
+                                    preventing a holistic view of global resource flow[cite: 3].</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="text-emerald-500 text-2xl mt-1"><i class="fa-solid fa-bolt"></i></div>
+                            <div>
+                                <h4 class="font-bold text-xl mb-2">Reactionary Logistics</h4>
+                                <p class="text-slate-500">Companies respond to disruptions *after* they occur, leading
+                                    to emergency shipping spikes[cite: 3].</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal">
+                    <div class="glass p-12 rounded-[3rem] border-emerald-500/20 relative overflow-hidden">
+                        <h4 class="heading-font text-3xl font-bold mb-6 italic">"A Self-Optimizing Digital Twin"</h4>
+                        <p class="text-slate-400 mb-8 leading-relaxed">
+                            Our vision is a world where every kilometer traveled is maximized for carbon
+                            efficiency[cite: 3]. We believe AI is the key to unlocking the Circular Economy at scale,
+                            treating every industrial byproduct as a valuable input.
+                        </p>
+                        <div class="w-full h-1 bg-white/5 rounded-full mb-8">
+                            <div class="w-2/3 h-full bg-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.8)]"></div>
+                        </div>
+                        <p class="text-xs font-bold text-emerald-500 uppercase tracking-widest">Efficiency Milestone:
+                            67% Projected Increase</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Technical Deep Dive (The Neural Engine) -->
+    <section id="tech" class="py-40 px-6 bg-white/[0.01]">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="heading-font text-6xl font-bold mb-20 reveal">The Neural Routing Engine</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Spatial AI Card -->
+                <div class="glass p-10 rounded-[2.5rem] reveal">
+                    <div
+                        class="w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center text-emerald-500 text-2xl mb-8">
+                        <i class="fa-solid fa-earth-americas"></i>
+                    </div>
+                    <h4 class="font-bold text-2xl mb-4">Spatial Mapping</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">
+                        Maps the physical location and movement of assets in real-time using high-fidelity spatial
+                        data[cite: 3, 4].
+                    </p>
+                    <ul class="text-[11px] font-bold text-slate-400 space-y-2 uppercase tracking-widest">
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> IoT Mesh Integration</li>
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Real-Time Telemetry</li>
+                    </ul>
+                </div>
+                <!-- Carbon Cost Card -->
+                <div class="glass p-10 rounded-[2.5rem] reveal" style="transition-delay: 100ms">
+                    <div
+                        class="w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center text-emerald-500 text-2xl mb-8">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <h4 class="font-bold text-2xl mb-4">Neural Calculations</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">
+                        Calculates "True Carbon Cost" by adjusting for vehicle weight, engine health, terrain incline,
+                        and weather resistance[cite: 3, 4].
+                    </p>
+                    <ul class="text-[11px] font-bold text-slate-400 space-y-2 uppercase tracking-widest">
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Dynamic Route Adaptation</li>
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Spoilage Prediction</li>
+                    </ul>
+                </div>
+                <!-- Circular Bridging Card -->
+                <div class="glass p-10 rounded-[2.5rem] reveal" style="transition-delay: 200ms">
+                    <div
+                        class="w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center text-emerald-500 text-2xl mb-8">
+                        <i class="fa-solid fa-bridge"></i>
+                    </div>
+                    <h4 class="font-bold text-2xl mb-4">Demand Bridging</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">
+                        AI identifies "Circular Match-ups," automatically connecting byproduct producers with nearby raw
+                        material consumers[cite: 3].
+                    </p>
+                    <ul class="text-[11px] font-bold text-slate-400 space-y-2 uppercase tracking-widest">
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Automated Waste Valuation</li>
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Just-In-Time Pickups</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Roadmap to Autonomy -->
+    <section id="roadmap" class="py-40 px-6">
+        <div class="max-w-4xl mx-auto reveal">
+            <h2 class="heading-font text-5xl font-bold mb-16 text-center">Path to Autonomy[cite: 3]</h2>
+            <div class="space-y-12">
+                <div class="flex gap-12 relative">
+                    <div class="w-0.5 bg-emerald-500/20 absolute left-6 top-10 bottom-0"></div>
+                    <div
+                        class="w-12 h-12 rounded-full bg-emerald-500 text-black flex items-center justify-center font-bold z-10 flex-shrink-0">
+                        1</div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">Phase 1: Foundational Sync</h4>
+                        <p class="text-slate-500">Unifying siloed systems across pilot clients via our ERP-agnostic API
+                            layer[cite: 3, 4].</p>
+                    </div>
+                </div>
+                <div class="flex gap-12 relative">
+                    <div class="w-0.5 bg-emerald-500/20 absolute left-6 top-10 bottom-0"></div>
+                    <div
+                        class="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500 text-emerald-500 flex items-center justify-center font-bold z-10 flex-shrink-0">
+                        2</div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2 text-emerald-400">Phase 2: Active Optimization</h4>
+                        <p class="text-slate-500">Activating the Neural Routing and Circular Bridging engines for
+                            real-time reduction[cite: 3].</p>
+                    </div>
+                </div>
+                <div class="flex gap-12">
+                    <div
+                        class="w-12 h-12 rounded-full bg-white/5 border border-white/10 text-slate-500 flex items-center justify-center font-bold z-10 flex-shrink-0">
+                        3</div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2 text-slate-500">Phase 3: Full Autonomy</h4>
+                        <p class="text-slate-500 italic">Self-learning models that execute logistical adjustments with
+                            zero human oversight[cite: 3].</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 px-6 border-t border-white/5 text-center">
+        <div class="max-w-2xl mx-auto">
+            <div class="inline-block px-4 py-2 rounded-lg bg-emerald-500 text-black font-bold mb-10">EcoLink Dynamics
+                2026</div>
+            <p class="text-slate-500 text-sm">Synchronizing the physical world through intelligence[cite: 3]. Built for
+                the Circular Economy. Confidential Property of Pascal Igwebuike[cite: 3].</p>
+        </div>
+    </footer>
+
+    <script>
+        // Reveal Animations
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) { reveals[i].classList.add("active"); }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        window.onload = reveal;
+
+        // Progress Bar
+        window.onscroll = function () {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("progress").style.width = scrolled + "%";
+
+            // Nav shrink
+            var nav = document.getElementById("navbar");
+            if (winScroll > 100) { nav.classList.add("py-2"); } else { nav.classList.remove("py-2"); }
+        };
+
+        function openModal() { alert("Strategic Pilot Registration: Initializing Auth Layer..."); }
+    </script>
+</body>
+
+</html>
