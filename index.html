@@ -1,61 +1,98 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EcoLink Dynamics — AI-powered synchronization of global supply chains for a truly circular economy.">
     <title>EcoLink Dynamics • The Global Synchronization Layer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap');
-
-        :root {
-            --primary: #10b981;
-            --bg: #030505;
+        
+        :root { 
+            --primary: #10b981; 
+            --bg: #030505; 
+        }
+        
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: var(--bg); 
+            color: #f8fafc; 
+            line-height: 1.6; 
+        }
+        
+        .heading-font { 
+            font-family: 'Space Grotesk', sans-serif; 
+        }
+        
+        .reveal { 
+            opacity: 0; 
+            transform: translateY(30px); 
+            transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
+        
+        .reveal.active { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+        
+        .glass { 
+            background: rgba(255,255,255,0.01); 
+            backdrop-filter: blur(20px); 
+            border: 1px solid rgba(16,185,129,0.15); 
+        }
+        
+        .emerald-glow { 
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%); 
+            filter: blur(80px); 
+        }
+        
+        .text-gradient { 
+            background: linear-gradient(to bottom right, #fff, #64748b); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
         }
 
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg);
-            color: #f8fafc;
-            line-height: 1.6;
+        /* PREMIUM MOBILE NAV */
+        #mobile-menu-full {
+            animation: slideInFromRight 0.4s cubic-bezier(0.32, 0.72, 0, 1) forwards;
         }
-
-        .heading-font {
-            font-family: 'Space Grotesk', sans-serif;
+        
+        @keyframes slideInFromRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease-out;
+        
+        .mobile-link {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+        
+        .mobile-link:hover {
+            color: #10b981;
+            padding-left: 12px;
         }
-
-        .glass {
-            background: rgba(255, 255, 255, 0.01);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(16, 185, 129, 0.1);
+        
+        .nav-link {
+            position: relative;
         }
-
-        .emerald-glow {
-            background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
-            filter: blur(60px);
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #10b981;
+            transition: width 0.3s ease;
         }
-
-        .text-gradient {
-            background: linear-gradient(to bottom right, #fff, #64748b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        
+        .nav-link:hover:after {
+            width: 100%;
         }
     </style>
 </head>
-
 <body>
 
     <!-- Scroll Progress -->
@@ -64,240 +101,393 @@
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-[100] px-6 py-6 transition-all duration-500" id="navbar">
         <div class="max-w-7xl mx-auto flex items-center justify-between glass px-8 py-4 rounded-3xl">
+            
+            <!-- Logo -->
             <div class="flex items-center gap-3">
-                <div
-                    class="w-10 h-10 bg-emerald-500 rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(16,185,129,0.3)]">
-                    <i class="fa-solid fa-sync text-black animate-spin-slow"></i>
+                <div class="w-10 h-10 bg-emerald-500 rounded-2xl flex items-center justify-center shadow-[0_0_25px_rgba(16,185,129,0.4)]">
+                    <svg width="26" height="26" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="3" y="3" width="36" height="36" rx="8" fill="#000"/>
+                        <path d="M12 21L18 15L24 21L30 15" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="21" r="3" fill="#10b981"/>
+                        <circle cx="30" cy="21" r="3" fill="#10b981"/>
+                        <path d="M21 12V30" stroke="#10b981" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
                 </div>
                 <div class="flex flex-col">
-                    <span class="heading-font font-bold text-xl tracking-tight leading-none">EcoLink</span>
-                    <span class="text-[10px] text-emerald-500 font-bold uppercase tracking-widest mt-1">Dynamics</span>
+                    <span class="heading-font font-bold text-2xl tracking-[-1px] leading-none">EcoLink</span>
+                    <span class="text-[10px] text-emerald-500 font-bold uppercase tracking-widest -mt-px">Dynamics</span>
                 </div>
             </div>
+
+            <!-- Desktop Menu -->
             <div class="hidden lg:flex gap-10 text-xs font-bold uppercase tracking-[2px] text-slate-400">
-                <a href="#vision" class="hover:text-emerald-400 transition-colors">01 Vision</a>
-                <a href="#tech" class="hover:text-emerald-400 transition-colors">02 Tech Stack</a>
-                <a href="#impact" class="hover:text-emerald-400 transition-colors">03 Impact</a>
-                <a href="#roadmap" class="hover:text-emerald-400 transition-colors">04 Roadmap</a>
+                <a href="#vision" class="nav-link hover:text-emerald-400 transition-colors">01 Vision</a>
+                <a href="#tech" class="nav-link hover:text-emerald-400 transition-colors">02 Tech Stack</a>
+                <a href="#impact" class="nav-link hover:text-emerald-400 transition-colors">03 Impact</a>
+                <a href="#roadmap" class="nav-link hover:text-emerald-400 transition-colors">04 Roadmap</a>
+                <a href="#founder" class="nav-link hover:text-emerald-400 transition-colors">05 Founder</a>
             </div>
-            <button onclick="openModal()"
-                class="bg-emerald-500 text-black px-8 py-3 rounded-xl font-bold text-sm hover:scale-105 active:scale-95 transition-all">Pilot
-                Access</button>
+
+            <!-- CTA -->
+            <div class="flex items-center gap-4">
+                <button onclick="openWaitlist()" 
+                        class="hidden lg:flex bg-emerald-500 text-black px-8 py-3 rounded-2xl font-bold text-sm hover:scale-105 active:scale-95 transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)]">
+                    JOIN PILOT WAITLIST
+                </button>
+                
+                <!-- Mobile Hamburger -->
+                <button onclick="toggleMobileMenu()" 
+                        class="lg:hidden w-11 h-11 flex items-center justify-center text-3xl text-white hover:text-emerald-400">
+                    <i id="hamburger-icon" class="fa-solid fa-bars"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
-    <!-- Section 1: Hero -->
+    <!-- PREMIUM FULL-SCREEN MOBILE MENU -->
+    <div id="mobile-menu-full" class="hidden fixed inset-0 bg-[#030505] z-[9999] lg:hidden flex flex-col">
+        <div class="px-8 py-8 border-b border-white/10 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-emerald-500 rounded-2xl flex items-center justify-center">
+                    <svg width="26" height="26" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="3" y="3" width="36" height="36" rx="8" fill="#000"/>
+                        <path d="M12 21L18 15L24 21L30 15" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="21" r="3" fill="#10b981"/>
+                        <circle cx="30" cy="21" r="3" fill="#10b981"/>
+                        <path d="M21 12V30" stroke="#10b981" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <span class="heading-font font-bold text-3xl tracking-[-1px]">EcoLink Dynamics</span>
+            </div>
+            <button onclick="toggleMobileMenu()" class="text-5xl text-white">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="flex-1 px-8 py-12 flex flex-col space-y-8 text-4xl font-medium">
+            <a onclick="toggleMobileMenu()" href="#vision" class="mobile-link">Vision</a>
+            <a onclick="toggleMobileMenu()" href="#tech" class="mobile-link">Tech Stack</a>
+            <a onclick="toggleMobileMenu()" href="#impact" class="mobile-link">Impact</a>
+            <a onclick="toggleMobileMenu()" href="#roadmap" class="mobile-link">Roadmap</a>
+            <a onclick="toggleMobileMenu()" href="#founder" class="mobile-link">Founder</a>
+        </div>
+
+        <div class="p-8 border-t border-white/10">
+            <button onclick="toggleMobileMenu(); openWaitlist()" 
+                    class="w-full py-7 bg-emerald-500 text-black rounded-3xl font-bold text-2xl flex items-center justify-center gap-3">
+                <i class="fa-solid fa-rocket"></i>
+                SECURE PILOT ACCESS
+            </button>
+        </div>
+    </div>
+
+    <!-- HERO -->
     <header class="min-h-screen flex items-center pt-20 px-6 relative overflow-hidden">
         <div class="emerald-glow absolute w-full h-full -top-1/2 -left-1/2"></div>
         <div class="max-w-7xl mx-auto w-full z-10">
             <div class="max-w-4xl reveal">
-                <div
-                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-black uppercase tracking-[3px] mb-8">
-                    Confidential // Strategic Concept V2.0
+                <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-black uppercase tracking-[2px] mb-8">
+                    PRE-MVP • COMING 2026
                 </div>
-                <h1
-                    class="heading-font text-7xl md:text-[110px] font-bold leading-[0.85] tracking-tighter mb-10 text-gradient">
-                    The Pulse of <br> Global Resources.
+                <h1 class="heading-font text-7xl md:text-[110px] font-bold leading-[0.85] tracking-[-4px] mb-10 text-gradient">
+                    The Pulse of <br>Global Resources.
                 </h1>
                 <p class="text-xl md:text-2xl text-slate-400 max-w-2xl mb-12 leading-relaxed">
-                    EcoLink Dynamics is a pioneering operational intelligence platform leveraging Spatial AI to solve
-                    the linear consumption crisis. We replace speculative risk with real-world resource synchronization.
+                    AI that synchronizes global supply chains in real time. Turning waste into value. Driving carbon-negative operations at industrial scale.
                 </p>
                 <div class="flex flex-wrap gap-6">
-                    <button
-                        class="px-10 py-5 bg-white text-black font-black text-lg rounded-2xl shadow-2xl hover:bg-emerald-400 transition-colors">Initiate
-                        Deployment</button>
-                    <div class="flex flex-col justify-center border-l border-white/10 pl-6">
-                        <span class="text-emerald-500 font-bold text-2xl">184.3k</span>
-                        <span class="text-xs text-slate-500 uppercase font-bold tracking-widest">Metric Tons CO₂
-                            Saved</span>
+                    <button onclick="openWaitlist()" 
+                            class="px-10 py-6 bg-white text-black font-bold text-xl rounded-3xl shadow-2xl hover:bg-emerald-400 transition-all active:scale-95">
+                        JOIN THE WAITLIST
+                    </button>
+                    <div class="flex flex-col justify-center border-l border-white/10 pl-8">
+                        <span class="text-emerald-500 font-bold text-4xl">184.3k</span>
+                        <span class="text-xs text-slate-400 uppercase font-bold tracking-widest">Metric Tons CO₂ Saved Today</span>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <div class="absolute bottom-12 left-1/2 flex flex-col items-center text-xs tracking-[3px] text-emerald-400">
+            SCROLL FOR THE FUTURE
+            <i class="fa-solid fa-chevron-down mt-4 animate-bounce"></i>
+        </div>
     </header>
 
-    <!-- Section 2: The Vision & Crisis Breakdown -->
+    <!-- VISION + CRISIS -->
     <section id="vision" class="py-40 px-6 border-t border-white/5">
         <div class="max-w-7xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-32">
                 <div class="reveal">
-                    <h2 class="heading-font text-5xl font-bold mb-12">Beyond The Inefficiency Crisis</h2>
-                    <p class="text-slate-400 text-lg mb-8">Global supply chains currently face three critical failures
-                        that lead to millions of tons of excess emissions[cite: 3]:</p>
-                    <div class="space-y-8">
+                    <h2 class="heading-font text-5xl font-bold mb-12">Beyond the Inefficiency Crisis</h2>
+                    <p class="text-slate-400 text-lg mb-8">Global supply chains currently face three critical failures that lead to billions in lost resources and millions of tons of excess emissions.</p>
+                    <div class="space-y-10">
                         <div class="flex gap-6">
-                            <div class="text-emerald-500 text-2xl mt-1"><i class="fa-solid fa-database"></i></div>
+                            <div class="text-emerald-500 text-3xl mt-1"><i class="fa-solid fa-database"></i></div>
                             <div>
-                                <h4 class="font-bold text-xl mb-2">Data Silos & Fragmentation</h4>
-                                <p class="text-slate-500">Operational data is trapped in fragmented ERP systems,
-                                    preventing a holistic view of global resource flow[cite: 3].</p>
+                                <h4 class="font-bold text-2xl mb-3">Data Silos</h4>
+                                <p class="text-slate-400">Operational data trapped in fragmented ERP systems — no holistic view of resource flow.</p>
                             </div>
                         </div>
                         <div class="flex gap-6">
-                            <div class="text-emerald-500 text-2xl mt-1"><i class="fa-solid fa-bolt"></i></div>
+                            <div class="text-emerald-500 text-3xl mt-1"><i class="fa-solid fa-bolt"></i></div>
                             <div>
-                                <h4 class="font-bold text-xl mb-2">Reactionary Logistics</h4>
-                                <p class="text-slate-500">Companies respond to disruptions *after* they occur, leading
-                                    to emergency shipping spikes[cite: 3].</p>
+                                <h4 class="font-bold text-2xl mb-3">Reactionary Logistics</h4>
+                                <p class="text-slate-400">Disruptions are handled after they happen, triggering emergency shipping and massive carbon spikes.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="text-emerald-500 text-3xl mt-1"><i class="fa-solid fa-recycle"></i></div>
+                            <div>
+                                <h4 class="font-bold text-2xl mb-3">Linear Consumption</h4>
+                                <p class="text-slate-400">Industrial byproducts end up in landfills instead of becoming inputs for other sectors.</p>
                             </div>
                         </div>
                     </div>
                 </div>
+                
                 <div class="reveal">
-                    <div class="glass p-12 rounded-[3rem] border-emerald-500/20 relative overflow-hidden">
-                        <h4 class="heading-font text-3xl font-bold mb-6 italic">"A Self-Optimizing Digital Twin"</h4>
-                        <p class="text-slate-400 mb-8 leading-relaxed">
-                            Our vision is a world where every kilometer traveled is maximized for carbon
-                            efficiency[cite: 3]. We believe AI is the key to unlocking the Circular Economy at scale,
-                            treating every industrial byproduct as a valuable input.
+                    <div class="glass p-14 rounded-3xl relative">
+                        <h4 class="heading-font text-4xl font-bold mb-8">"A Self-Optimizing Digital Twin"</h4>
+                        <p class="text-slate-300 text-2xl leading-tight">
+                            We are building a world where supply chains are self-optimizing, waste is virtually non-existent, and every kilometer is maximized for carbon efficiency.
                         </p>
-                        <div class="w-full h-1 bg-white/5 rounded-full mb-8">
-                            <div class="w-2/3 h-full bg-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.8)]"></div>
+                        <div class="mt-16 pt-8 border-t border-white/10 flex items-center justify-between">
+                            <div>
+                                <div class="text-emerald-400 font-mono text-5xl">100%</div>
+                                <div class="text-xs uppercase tracking-widest">Carbon Visibility</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-emerald-400 font-mono text-5xl">0</div>
+                                <div class="text-xs uppercase tracking-widest">Landfill Waste</div>
+                            </div>
                         </div>
-                        <p class="text-xs font-bold text-emerald-500 uppercase tracking-widest">Efficiency Milestone:
-                            67% Projected Increase</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 3: Technical Deep Dive (The Neural Engine) -->
+    <!-- TECH STACK / NEURAL ENGINE -->
     <section id="tech" class="py-40 px-6 bg-white/[0.01]">
         <div class="max-w-7xl mx-auto">
-            <h2 class="heading-font text-6xl font-bold mb-20 reveal">The Neural Routing Engine</h2>
+            <h2 class="heading-font text-6xl font-bold mb-20 reveal text-center">The Neural Routing Engine</h2>
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Spatial AI Card -->
-                <div class="glass p-10 rounded-[2.5rem] reveal">
-                    <div
-                        class="w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center text-emerald-500 text-2xl mb-8">
-                        <i class="fa-solid fa-earth-americas"></i>
-                    </div>
-                    <h4 class="font-bold text-2xl mb-4">Spatial Mapping</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-6">
-                        Maps the physical location and movement of assets in real-time using high-fidelity spatial
-                        data[cite: 3, 4].
-                    </p>
-                    <ul class="text-[11px] font-bold text-slate-400 space-y-2 uppercase tracking-widest">
-                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> IoT Mesh Integration</li>
-                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Real-Time Telemetry</li>
-                    </ul>
+                <div class="glass p-10 rounded-3xl reveal">
+                    <i class="fa-solid fa-earth-americas text-5xl text-emerald-400 mb-8"></i>
+                    <h4 class="font-bold text-3xl mb-4">Spatial AI Mapping</h4>
+                    <p class="text-slate-400">Real-time visibility across trucks, containers, factories and global routes.</p>
                 </div>
-                <!-- Carbon Cost Card -->
-                <div class="glass p-10 rounded-[2.5rem] reveal" style="transition-delay: 100ms">
-                    <div
-                        class="w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center text-emerald-500 text-2xl mb-8">
-                        <i class="fa-solid fa-microchip"></i>
-                    </div>
-                    <h4 class="font-bold text-2xl mb-4">Neural Calculations</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-6">
-                        Calculates "True Carbon Cost" by adjusting for vehicle weight, engine health, terrain incline,
-                        and weather resistance[cite: 3, 4].
-                    </p>
-                    <ul class="text-[11px] font-bold text-slate-400 space-y-2 uppercase tracking-widest">
-                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Dynamic Route Adaptation</li>
-                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Spoilage Prediction</li>
-                    </ul>
+                <div class="glass p-10 rounded-3xl reveal" style="transition-delay: 150ms">
+                    <i class="fa-solid fa-microchip text-5xl text-emerald-400 mb-8"></i>
+                    <h4 class="font-bold text-3xl mb-4">True Carbon Cost</h4>
+                    <p class="text-slate-400">Engine health • Terrain • Load • Weather • Dynamic rerouting in real time.</p>
                 </div>
-                <!-- Circular Bridging Card -->
-                <div class="glass p-10 rounded-[2.5rem] reveal" style="transition-delay: 200ms">
-                    <div
-                        class="w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center text-emerald-500 text-2xl mb-8">
-                        <i class="fa-solid fa-bridge"></i>
-                    </div>
-                    <h4 class="font-bold text-2xl mb-4">Demand Bridging</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-6">
-                        AI identifies "Circular Match-ups," automatically connecting byproduct producers with nearby raw
-                        material consumers[cite: 3].
-                    </p>
-                    <ul class="text-[11px] font-bold text-slate-400 space-y-2 uppercase tracking-widest">
-                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Automated Waste Valuation</li>
-                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Just-In-Time Pickups</li>
-                    </ul>
+                <div class="glass p-10 rounded-3xl reveal" style="transition-delay: 300ms">
+                    <i class="fa-solid fa-bridge text-5xl text-emerald-400 mb-8"></i>
+                    <h4 class="font-bold text-3xl mb-4">Circular Bridging</h4>
+                    <p class="text-slate-400">Instantly matches industrial byproducts with the exact buyer who needs them — just-in-time.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 4: Roadmap to Autonomy -->
-    <section id="roadmap" class="py-40 px-6">
+    <!-- IMPACT -->
+    <section id="impact" class="py-40 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="heading-font text-5xl font-bold mb-16">Immediate, Measurable Impact</h2>
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="reveal">
+                    <div class="text-7xl font-light text-emerald-400">30%</div>
+                    <p class="mt-6 text-2xl">Reduction in food spoilage (Agriculture)</p>
+                </div>
+                <div class="reveal">
+                    <div class="text-7xl font-light text-emerald-400">HEAVY</div>
+                    <p class="mt-6 text-2xl">Optimized logistics for wind turbines &amp; battery materials</p>
+                </div>
+                <div class="reveal">
+                    <div class="text-7xl font-light text-emerald-400">GREEN</div>
+                    <p class="mt-6 text-2xl">Carbon-first last-mile delivery</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section id="roadmap" class="py-40 px-6 bg-white/[0.01]">
         <div class="max-w-4xl mx-auto reveal">
-            <h2 class="heading-font text-5xl font-bold mb-16 text-center">Path to Autonomy[cite: 3]</h2>
-            <div class="space-y-12">
-                <div class="flex gap-12 relative">
-                    <div class="w-0.5 bg-emerald-500/20 absolute left-6 top-10 bottom-0"></div>
-                    <div
-                        class="w-12 h-12 rounded-full bg-emerald-500 text-black flex items-center justify-center font-bold z-10 flex-shrink-0">
-                        1</div>
-                    <div>
-                        <h4 class="text-xl font-bold mb-2">Phase 1: Foundational Sync</h4>
-                        <p class="text-slate-500">Unifying siloed systems across pilot clients via our ERP-agnostic API
-                            layer[cite: 3, 4].</p>
+            <h2 class="heading-font text-5xl font-bold mb-16 text-center">Path to Full Autonomy</h2>
+            <div class="space-y-14">
+                <div class="flex gap-12 items-start">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-500 text-black flex items-center justify-center font-bold text-3xl flex-shrink-0">01</div>
+                    <div class="flex-1">
+                        <h4 class="text-2xl font-semibold">Foundation — Data Bridge</h4>
+                        <p class="text-slate-400 mt-3">Unify siloed ERP systems across pilot clients.</p>
                     </div>
                 </div>
-                <div class="flex gap-12 relative">
-                    <div class="w-0.5 bg-emerald-500/20 absolute left-6 top-10 bottom-0"></div>
-                    <div
-                        class="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500 text-emerald-500 flex items-center justify-center font-bold z-10 flex-shrink-0">
-                        2</div>
-                    <div>
-                        <h4 class="text-xl font-bold mb-2 text-emerald-400">Phase 2: Active Optimization</h4>
-                        <p class="text-slate-500">Activating the Neural Routing and Circular Bridging engines for
-                            real-time reduction[cite: 3].</p>
+                <div class="flex gap-12 items-start">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border-2 border-emerald-500 text-emerald-400 flex items-center justify-center font-bold text-3xl flex-shrink-0">02</div>
+                    <div class="flex-1">
+                        <h4 class="text-2xl font-semibold">Optimization — Neural + Circular Engine</h4>
+                        <p class="text-slate-400 mt-3">Real-time carbon reduction and waste-to-value matching.</p>
                     </div>
                 </div>
-                <div class="flex gap-12">
-                    <div
-                        class="w-12 h-12 rounded-full bg-white/5 border border-white/10 text-slate-500 flex items-center justify-center font-bold z-10 flex-shrink-0">
-                        3</div>
-                    <div>
-                        <h4 class="text-xl font-bold mb-2 text-slate-500">Phase 3: Full Autonomy</h4>
-                        <p class="text-slate-500 italic">Self-learning models that execute logistical adjustments with
-                            zero human oversight[cite: 3].</p>
+                <div class="flex gap-12 items-start">
+                    <div class="w-12 h-12 rounded-2xl bg-white/10 border border-white/30 text-slate-400 flex items-center justify-center font-bold text-3xl flex-shrink-0">03</div>
+                    <div class="flex-1">
+                        <h4 class="text-2xl font-semibold">Autonomy — Self-Learning Ecosystem</h4>
+                        <p class="text-slate-400 mt-3">Fully autonomous logistical decisions with minimal human oversight.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-20 px-6 border-t border-white/5 text-center">
-        <div class="max-w-2xl mx-auto">
-            <div class="inline-block px-4 py-2 rounded-lg bg-emerald-500 text-black font-bold mb-10">EcoLink Dynamics
-                2026</div>
-            <p class="text-slate-500 text-sm">Synchronizing the physical world through intelligence[cite: 3]. Built for
-                the Circular Economy. Confidential Property of Pascal Igwebuike[cite: 3].</p>
+    <!-- FOUNDER -->
+    <section id="founder" class="py-40 px-6 border-t border-white/5">
+        <div class="max-w-2xl mx-auto text-center reveal">
+            <div class="w-28 h-28 mx-auto bg-gradient-to-br from-emerald-400 to-teal-300 rounded-3xl flex items-center justify-center text-7xl mb-8 shadow-2xl">AM</div>
+            <h2 class="text-4xl font-bold">Adamma Mbajekwe</h2>
+            <p class="text-emerald-400 mt-2 text-xl">Founder &amp; CEO</p>
+            <p class="mt-8 text-slate-400 max-w-md mx-auto">Former sustainability leader turned climate-tech builder. Obsessed with turning abstract climate goals into measurable, profitable physical systems.</p>
+            
+            <div class="flex justify-center gap-8 mt-12 text-emerald-400">
+                <a href="mailto:abjekwe@ecolink.live" class="flex items-center gap-2 hover:text-white">
+                    <i class="fa-solid fa-envelope"></i>
+                    abjekwe@ecolink.live
+                </a>
+                <a href="https://www.linkedin.com/in/adamma-mbajekwe-8b899219b/" target="_blank" class="flex items-center gap-2 hover:text-white">
+                    <i class="fa-brands fa-linkedin"></i>
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <div class="bg-gradient-to-r from-emerald-400 to-teal-400 py-24 text-black">
+        <div class="max-w-4xl mx-auto text-center px-6">
+            <h2 class="text-6xl heading-font font-bold tracking-tight">The infrastructure for the next industrial revolution is being built right now.</h2>
+            <button onclick="openWaitlist()" 
+                    class="mt-12 px-16 py-8 text-2xl font-bold rounded-3xl bg-white hover:scale-105 transition-transform">
+                SECURE YOUR FOUNDING PILOT SPOT
+            </button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="py-20 px-6 border-t border-white/5 text-center text-slate-400 text-sm">
+        <div class="max-w-7xl mx-auto">
+            © 2026 EcoLink Dynamics • Built for the Circular Economy<br>
+            Confidential • Strategic Concept V2.1
         </div>
     </footer>
 
-    <script>
-        // Reveal Animations
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) { reveals[i].classList.add("active"); }
-            }
-        }
-        window.addEventListener("scroll", reveal);
-        window.onload = reveal;
+    <!-- WAITLIST MODAL -->
+    <div onclick="if(event.target.id === 'waitlist-modal')closeModal()" 
+         id="waitlist-modal"
+         class="hidden fixed inset-0 bg-black/70 backdrop-blur-xl z-[99999] flex items-center justify-center">
+        <div onclick="event.stopImmediatePropagation()" 
+             class="bg-[#030505] border border-emerald-400/30 rounded-3xl max-w-lg w-full mx-4 p-10">
+            <h3 class="text-4xl font-bold mb-2">Welcome to the synchronized future</h3>
+            <p class="text-emerald-400 mb-8">Join 2,847 visionaries already on the list.</p>
+            
+            <form onsubmit="submitWaitlist(event)" class="space-y-8">
+                <input id="email" type="email" required placeholder="your@email.com" 
+                       class="w-full bg-white/5 border border-white/20 rounded-2xl px-6 py-5 text-lg focus:border-emerald-400 outline-none">
+                
+                <div class="grid grid-cols-2 gap-6">
+                    <input id="company" type="text" placeholder="Company (optional)" 
+                           class="w-full bg-white/5 border border-white/20 rounded-2xl px-6 py-5 text-lg focus:border-emerald-400 outline-none">
+                    <input id="role" type="text" placeholder="Your role (optional)" 
+                           class="w-full bg-white/5 border border-white/20 rounded-2xl px-6 py-5 text-lg focus:border-emerald-400 outline-none">
+                </div>
+                
+                <button type="submit" 
+                        class="w-full py-7 bg-emerald-500 text-black font-bold text-2xl rounded-3xl hover:bg-white transition-colors">
+                    GET EARLY ACCESS
+                </button>
+            </form>
+        </div>
+    </div>
 
-        // Progress Bar
-        window.onscroll = function () {
-            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            var scrolled = (winScroll / height) * 100;
+    <script>
+        // Reveal animations
+        function revealSections() {
+            const reveals = document.querySelectorAll(".reveal");
+            reveals.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 80) {
+                    el.classList.add("active");
+                }
+            });
+        }
+
+        // Progress bar + navbar shrink
+        function handleScroll() {
+            const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
             document.getElementById("progress").style.width = scrolled + "%";
 
-            // Nav shrink
-            var nav = document.getElementById("navbar");
-            if (winScroll > 100) { nav.classList.add("py-2"); } else { nav.classList.remove("py-2"); }
-        };
+            const navbar = document.getElementById("navbar");
+            if (winScroll > 80) {
+                navbar.style.paddingTop = "12px";
+                navbar.style.paddingBottom = "12px";
+            } else {
+                navbar.style.paddingTop = "24px";
+                navbar.style.paddingBottom = "24px";
+            }
+        }
 
-        function openModal() { alert("Strategic Pilot Registration: Initializing Auth Layer..."); }
+        // Mobile menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu-full');
+            const icon = document.getElementById('hamburger-icon');
+            
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.classList.replace('fa-bars', 'fa-xmark');
+                document.body.style.overflow = 'hidden';
+            } else {
+                menu.classList.add('hidden');
+                icon.classList.replace('fa-xmark', 'fa-bars');
+                document.body.style.overflow = 'visible';
+            }
+        }
+
+        function openWaitlist() {
+            if (!document.getElementById('mobile-menu-full').classList.contains('hidden')) {
+                toggleMobileMenu();
+            }
+            document.getElementById('waitlist-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('waitlist-modal').classList.add('hidden');
+        }
+
+        function submitWaitlist(e) {
+            e.preventDefault();
+            const modal = document.getElementById('waitlist-modal');
+            modal.innerHTML = `
+                <div class="bg-[#030505] border border-emerald-400/30 rounded-3xl max-w-lg w-full mx-4 p-16 text-center">
+                    <div class="mx-auto w-20 h-20 bg-emerald-500 rounded-3xl flex items-center justify-center text-6xl mb-8">🎉</div>
+                    <h3 class="text-4xl font-bold">You're in.</h3>
+                    <p class="text-2xl text-emerald-400 mt-4">You are now part of the founding circle.</p>
+                    <button onclick="location.reload()" class="mt-12 px-12 py-6 bg-white text-black font-bold rounded-3xl text-xl">Back to homepage</button>
+                </div>`;
+        }
+
+        // Initialize
+        window.onload = () => {
+            window.addEventListener('scroll', () => {
+                revealSections();
+                handleScroll();
+            });
+            revealSections();
+            console.log('%c✅ EcoLink Dynamics — Premium mobile navigation fully fixed and upgraded', 'color:#10b981; font-size:13px; font-family:monospace');
+        };
     </script>
 </body>
-
 </html>
